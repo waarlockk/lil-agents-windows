@@ -1,0 +1,17 @@
+{
+  "name": "lil-agents-windows",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Windows port of lil agents using Electron.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "convert-assets": "powershell -ExecutionPolicy Bypass -File scripts/convert-assets.ps1"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7"
+  },
+  "dependencies": {
+    "three": "^0.184.0"
+  }
+}

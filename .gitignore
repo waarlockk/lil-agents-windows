@@ -1,0 +1,9 @@
+# Node / Electron
+node_modules/
+dist/
+out/
+
+# Coding Assistants
+.claude/
+graphify-out/
+.gitBK/

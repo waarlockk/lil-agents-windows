@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="terminal-body">
+    <main class="terminal">
+      <header class="terminal-title">
+        <span id="provider">Agent</span>
+        <span id="character"></span>
+      </header>
+      <section id="output" class="terminal-output"></section>
+      <form id="form" class="terminal-form">
+        <button id="voice" class="voice-button" type="button" aria-label="Dictate with microphone" title="Dictate with microphone">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 15.5a3.5 3.5 0 0 0 3.5-3.5V7a3.5 3.5 0 0 0-7 0v5a3.5 3.5 0 0 0 3.5 3.5Zm6-3.5a1 1 0 0 1 2 0 8 8 0 0 1-7 7.94V22a1 1 0 0 1-2 0v-.06A8 8 0 0 1 4 12a1 1 0 1 1 2 0 6 6 0 0 0 12 0Zm-6-7a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-3 0V6.5A1.5 1.5 0 0 1 12 5Z"></path>
+          </svg>
+        </button>
+        <input id="input" autocomplete="off" spellcheck="false">
+      </form>
+    </main>
+    <script src="terminal.js"></script>
+  </body>
+</html>

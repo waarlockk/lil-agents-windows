@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "../node_modules/three/build/three.module.js",
+        "three/addons/": "../node_modules/three/examples/jsm/"
+      }
+    }
+    </script>
+  </head>
+  <body class="character-body">
+    <button id="character" class="character" aria-label="Open agent">
+      <canvas id="canvas"></canvas>
+      <span id="bubble" class="bubble hidden">thinking...</span>
+    </button>
+    <script type="module" src="character.js"></script>
+  </body>
+</html>

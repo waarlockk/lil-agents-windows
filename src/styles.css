@@ -1,0 +1,202 @@
+:root {
+  /* color-scheme is NOT set here — setting dark on :root makes Chromium paint
+     a black base canvas, which bleeds through the transparent WebGL window.
+     It is set only on .terminal-body where dark UI controls are actually needed. */
+  font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+  --popover-bg: rgba(18, 18, 17, 0.96);
+  --popover-border: rgba(255, 103, 31, 0.65);
+  --title-bg: rgba(28, 28, 26, 0.98);
+  --title-text: rgb(255, 103, 31);
+  --text-primary: rgba(255, 255, 255, 0.9);
+  --text-dim: rgba(255, 255, 255, 0.58);
+  --input-bg: rgba(255, 255, 255, 0.08);
+  --tool: rgb(255, 161, 102);
+  --error: rgb(255, 105, 91);
+  --success: rgb(95, 205, 120);
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+.character-body {
+  display: grid;
+  place-items: center;
+}
+
+.character {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  /* drop-shadow intentionally removed — CSS filters create an isolated GPU
+     compositing layer that prevents the WebGL canvas alpha from being composited
+     correctly with Electron's transparent window on Windows, causing the entire
+     canvas background to render as solid black instead of see-through. */
+}
+
+.character canvas {
+  display: block;
+  pointer-events: none;
+  background: transparent;
+}
+
+.bubble {
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  transform: translateX(-50%);
+  border: 1px solid var(--character-color);
+  border-radius: 999px;
+  background: rgba(22, 22, 20, 0.92);
+  color: white;
+  font-size: 11px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.bubble[data-kind="complete"] {
+  border-color: rgb(95, 205, 120);
+  color: rgb(160, 240, 170);
+}
+
+.bubble[data-kind="speaking"] {
+  border-color: rgb(255, 161, 102);
+  color: rgb(255, 220, 194);
+}
+
+.bubble[data-kind="listening"] {
+  border-color: rgb(95, 205, 120);
+  color: rgb(206, 255, 214);
+}
+
+.hidden {
+  display: none;
+}
+
+.terminal-body {
+  color-scheme: dark;   /* scoped here so it only affects the terminal window */
+  display: grid;
+  place-items: stretch;
+}
+
+.terminal {
+  display: grid;
+  grid-template-rows: 31px 1fr 40px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin: 1px;
+  border: 1px solid rgba(255, 103, 31, 0.65);
+  border-color: var(--popover-border);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--popover-bg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--popover-border);
+  background: var(--title-bg);
+  color: var(--title-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  -webkit-app-region: drag;
+}
+
+.terminal-output {
+  padding: 12px;
+  overflow: auto;
+  color: var(--text-primary);
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.terminal-output > div {
+  margin-bottom: 10px;
+}
+
+.user {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.assistant {
+  color: var(--text-primary);
+}
+
+.tool,
+.system {
+  color: var(--tool);
+}
+
+.error {
+  color: var(--error);
+}
+
+.terminal-form {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  padding: 6px 10px 10px;
+}
+
+.voice-button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--input-bg);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.voice-button:hover {
+  color: var(--title-text);
+}
+
+.voice-button svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.voice-button.listening {
+  background: rgba(95, 205, 120, 0.18);
+  color: rgb(160, 240, 170);
+}
+
+.voice-button[disabled] {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.terminal-form input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 28px;
+  border: 0;
+  outline: 0;
+  border-radius: 10px;
+  padding: 0 10px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font: 12px "Cascadia Mono", "Consolas", monospace;
+}
