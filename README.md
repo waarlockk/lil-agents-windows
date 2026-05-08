@@ -2,6 +2,10 @@
 
 An Electron app that places an animated 3D character (Goku) on your Windows taskbar. Click the character to open a floating terminal and chat with Claude, Codex, or Self-GPT directly from your desktop.
 
+## Demo
+
+<video src="example/vid.mp4" controls width="100%"></video>
+
 ## What it does
 
 - Renders Goku walking along your taskbar using Three.js and Mixamo FBX animations
@@ -140,4 +144,4 @@ The app runs entirely locally. Your chat messages are sent only to the provider 
 
 ## License
 
-MIT
+MIT License. See [LICENSE](LICENSE) for details.
