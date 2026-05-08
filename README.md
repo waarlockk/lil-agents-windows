@@ -23,9 +23,10 @@ An Electron app that places an animated 3D character (Goku) on your Windows task
 |---|---|---|
 | **Claude** | Streams via Claude Code CLI (`--output-format stream-json`) | [Claude Code](https://claude.ai/download) installed and on `PATH` |
 | **Codex** | Spawns `codex exec --json` per turn | `npm install -g @openai/codex` |
-| **Self-GPT** | Browser automation — uses ChatGPT in your browser without installing any CLI | See Self-GPT project setup |
+| **Self-GPT** | Browser automation — uses ChatGPT in your browser without installing any CLI | Coming Soon... |
 
 Self-GPT is a separate project that drives ChatGPT through browser automation, so you can use it without a paid API key or any CLI installation.
+Coming Soon...
 
 ## Requirements
 
